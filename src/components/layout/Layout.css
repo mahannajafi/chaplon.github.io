@@ -1,0 +1,8 @@
+.layOut__container {
+  margin: 0 32px;
+}
+@media (max-width: 500px) {
+  .layOut__container {
+    margin: 0;
+  }
+}

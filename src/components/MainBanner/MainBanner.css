@@ -1,0 +1,78 @@
+.mainBanner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-image: url("../../assets/imgs/main-pic.png");
+  background-size: cover;
+  padding: 0 30px;
+  padding-right: 50px;
+  height: 75vh;
+}
+.mainBanner__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: right;
+}
+.mainBanner__title {
+  font-weight: bold;
+  font-size: 40px;
+  margin-bottom: 1rem;
+}
+.mainBanner__dec {
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
+}
+.mainBanner__buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.mainBanner__design,
+.mainBanner__learn {
+  background-color: #fff;
+  border: none;
+  outline: none;
+  font-family: "vazir";
+  font-weight: bold;
+  border: 3px solid var(--main-color);
+  padding: 3px 16px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.mainBanner__design {
+  color: var(--second-color);
+  background-color: var(--main-color);
+}
+.mainBanner__learn {
+  color: var(--main-color);
+}
+
+.mainBanner__img {
+  height: 350px;
+  width: 450px;
+  border-radius: 30px;
+}
+@media (max-width: 500px) {
+  .mainBanner {
+    background-image: url("../../assets/imgs/home.png");
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0;
+  }
+  .mainBanner__title {
+    font-size: 32px;
+  }
+  .mainBanner__right {
+    padding-top: 70px;
+    width: 100%;
+    padding-right: 10px;
+  }
+  .mainBanner__dec {
+    font-size: 16px;
+    width: 180px;
+  }
+}

@@ -1,0 +1,20 @@
+.miniNavbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 70px;
+  width: 100vw;
+  background-color: #fff;
+  gap: 4rem;
+  padding: 0 32px;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
+}
+.miniNavbar__item {
+  text-decoration: none;
+  color: #656565;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
