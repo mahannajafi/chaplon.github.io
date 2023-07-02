@@ -1,8 +1,8 @@
 import "./TitleCat.css";
 import more from "../../assets/imgs/more.png";
-const TitleCat = ({ name, pic }) => {
+const TitleCat = ({ name, pic = "", dir = "ltr" }) => {
   return (
-    <div className="titleCat__container">
+    <div dir={dir} className="titleCat__container">
       <div className="titleCat__second">
         <div className="titleCat__morePic">
           <img src={more} alt="" srcset="" />

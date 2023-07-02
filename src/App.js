@@ -3,6 +3,7 @@ import "./App.css";
 import Login from "./pages/Login/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Design from "./pages/Design/Design";
+import SingleRawProduct from './pages/SingleRawProduct/SingleRawProduct'
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       <Routes>
         <Route path="/Login" element={<Login />} />
         <Route path="/" element={<Landing />} />
-        <Route path="/design" element={<Design />} />
+        <Route path="/Learn" element={<Design />} />
+        <Route path="/SingleRawProduct" element={<SingleRawProduct />} />
       </Routes>
     </BrowserRouter>
   );
