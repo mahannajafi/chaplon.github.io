@@ -3,7 +3,8 @@ import "./App.css";
 import Login from "./pages/Login/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Design from "./pages/Design/Design";
-import SingleRawProduct from './pages/SingleRawProduct/SingleRawProduct'
+import SingleRawProduct from "./pages/SingleRawProduct/SingleRawProduct";
+import PostNewDesign from "./pages/PostNewDesign/PostNewDesign";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/Learn" element={<Design />} />
         <Route path="/SingleRawProduct" element={<SingleRawProduct />} />
+        <Route path="/Design" element={<PostNewDesign />} />
       </Routes>
     </BrowserRouter>
   );

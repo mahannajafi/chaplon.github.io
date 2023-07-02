@@ -1,0 +1,152 @@
+.design-info {
+  width: 90%;
+  border-radius: 25px;
+  box-shadow: 5px 5px 30px #ddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5vh auto 10vh;
+}
+
+.design-info__header {
+  width: 100%;
+  border-radius: 25px 25px 0 0;
+  text-align: center;
+  color: var(--second-color);
+  background-color: var(--main-color);
+  padding: 30px 0;
+}
+
+.design-info__form__product-info,
+.design-info__form__upload-files {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.design-info__form__product-info__title,
+.design-info__form__upload-files__title {
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+  border-bottom: 2px solid #ddd;
+  padding: 20px;
+  margin: 20px auto;
+}
+
+.design-info__form__row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: top;
+}
+
+.design-info__form__horizontal-line,
+.design-info__form__vertical-line {
+  border: 1px solid #ddd;
+}
+
+.design-info__form__label {
+  width: 450px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: top;
+  margin: 20px;
+}
+
+.design-info__form__label .product-name-input {
+  height: 10px;
+}
+
+.design-info__form__label__input {
+  width: 400px;
+  font-size: 16px;
+  border: none;
+  border-radius: 15px;
+  box-shadow: inset 5px 5px 30px #ddd;
+  padding: 5%;
+  margin: 5%;
+}
+
+.design-info__form__label .final-price-input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 300px;
+  height: 8px;
+  box-shadow: none;
+  background-color: #333;
+  padding: 0;
+  cursor: pointer;
+}
+
+.design-info__form__label .final-price-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  box-shadow: 2px 2px 5px #00000099;
+  background-color: #f0e224;
+}
+
+textarea.design-info__form__label__input {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.custom-file-input {
+  border: 1px solid var(--main-color);
+  border-radius: 20px;
+  box-shadow: none;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+  display: none;
+}
+
+.custom-file-input::before {
+  content: "Upload JPG | ";
+}
+
+.design-info__form__submit-btn {
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 10px;
+  text-align: center;
+  border: none;
+  color: var(--second-color);
+  background-color: var(--main-color);
+  padding: 15px 25px;
+  margin: 50px auto;
+  cursor: pointer;
+}
+
+.design-info__form__colors-container {
+  padding-left: 20px;
+}
+
+.design-info__form__colors-container__color {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 100%;
+  box-shadow: 2px 2px 5px #00000099;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.color-btn-active {
+  box-shadow: none;
+}
+
+.check-icon {
+  height: inherit;
+  vertical-align: 0;
+}
