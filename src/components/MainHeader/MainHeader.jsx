@@ -54,9 +54,12 @@ const MainHeader = () => {
         </div>
         {isLogin ? (
           <>
-            <div className="headerUp__design headerUp__design-primary headerUp__user">
+            <Link
+              to="/dashboard"
+              className="headerUp__design headerUp__design-primary headerUp__user"
+            >
               <FontAwesomeIcon icon={faUser} />
-            </div>
+            </Link>
             <div className="headerUp__design headerUp__design-primary  headerUp__user2">
               <FontAwesomeIcon icon={faBell} />
             </div>
@@ -80,7 +83,7 @@ const MainHeader = () => {
             </Button>
           </Link>
         )}
-        <Link to="/design">
+        <Link to="/design" style={{ textDecoration: "none" }}>
           <Button
             sx={{
               bgcolor: "var(--second-color)",

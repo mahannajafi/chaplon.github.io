@@ -23,9 +23,6 @@ const Login = () => {
     axiosInstance
       .get(`/api/v1/accounts/get_my_info/`)
       .then((res) => {
-        // console.log(res);
-        // console.log(res.data);
-        console.log(res.data);
         dispatch(getUserData(res.data));
       })
       .then((res) => {

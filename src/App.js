@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Design from "./pages/Design/Design";
 import SingleRawProduct from "./pages/SingleRawProduct/SingleRawProduct";
 import PostNewDesign from "./pages/PostNewDesign/PostNewDesign";
+import DashboardLayout from "./components/DashboardLayout/DashboardLayout";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/Learn" element={<Design />} />
         <Route path="/SingleRawProduct" element={<SingleRawProduct />} />
         <Route path="/Design" element={<PostNewDesign />} />
+        <Route path="/dashboard" element={<DashboardLayout />}></Route>
       </Routes>
     </BrowserRouter>
   );

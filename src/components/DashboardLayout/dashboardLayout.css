@@ -1,0 +1,76 @@
+.dashboard__container {
+  display: flex;
+  min-height: 120vh;
+  width: 100%;
+  border-radius: 50px;
+  box-shadow: 1px 1px 50px 0px rgba(0, 0, 0, 0.1);
+  width: 90vw;
+  margin: 30px 0;
+}
+.superCon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.dashboard__menu {
+  width: 20%;
+  border-radius: 50px;
+  background-color: var(--main-color);
+}
+.dashboard__items {
+  width: 80%;
+}
+.dashboard__userCon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard__userpic {
+  background-color: #fff;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+.dashboard__username {
+  margin-top: 23px;
+  color: #fff;
+}
+.dashboard__balance {
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.dashboard__option {
+  display: flex;
+  /* background-color: red; */
+  justify-content: flex-end;
+  align-items: center;
+  width: 85%;
+  padding: 12px 24px 12px 0;
+  color: #fff;
+  cursor: pointer;
+  /* background-color: red; */
+  border-top-right-radius: 15px;
+  border-end-end-radius: 15px;
+}
+.dashboard__options {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 30px;
+}
+.menuIcons {
+  margin-left: 20px;
+}
+.active {
+  color: var(--main-color);
+  background-color: #fff;
+}
+.ertegh {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
