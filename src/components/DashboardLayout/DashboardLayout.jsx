@@ -18,16 +18,20 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
 import MapsHomeWorkIcon from "@mui/icons-material/MapsHomeWork";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
-import { getUserData, logOut } from "../../store/features/auth/authSlice";
+import {
+  getUserData,
+  logOut,
+  setDashboard,
+} from "../../store/features/auth/authSlice";
 import axiosInstance from "../../hooks/axios";
 
 const DashboardLayout = ({ children }) => {
   const redux = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  useEffect(() => {
-    if (!redux.isLogin) navigate("/login");
-  }, []);
+  // useEffect(() => {
+  //   if (!redux.isLogin) navigate("/login");
+  // }, []);
   const onInfo = (data) => {
     // navigate("/login  ");
     axiosInstance
@@ -45,7 +49,10 @@ const DashboardLayout = ({ children }) => {
       <MiniNavbar />
       <div className="superCon">
         <div className="dashboard__container">
-          <div className="dashboard__items">{children}</div>
+          <div className="dashboard__items">
+            <div className="header">{redux?.dashboard}</div>
+            {children}
+          </div>
           <div className="dashboard__menu">
             <div className="dashboard__userCon">
               <div className="dashboard__userpic">
@@ -76,19 +83,45 @@ const DashboardLayout = ({ children }) => {
                 variant="contained"
               >
                 برداشت
-                {/* <FontAwesomeIcon icon={faArrowAltCircleLeft} /> */}
               </Button>
 
               <div className="dashboard__options">
-                <div className="dashboard__option active">
+                <div
+                  className={
+                    redux?.dashboard === "اطلاعات کاربری"
+                      ? "dashboard__option active"
+                      : "dashboard__option"
+                  }
+                  onClick={() => {
+                    dispatch(setDashboard("اطلاعات کاربری"));
+                  }}
+                >
                   اطلاعات کاربری
-                  <PersonIcon className="menuIcons" />{" "}
+                  <PersonIcon className="menuIcons" />
                 </div>
-                <div className="dashboard__option">
+                <div
+                  className={
+                    redux?.dashboard === "ادرس های من"
+                      ? "dashboard__option active"
+                      : "dashboard__option"
+                  }
+                  onClick={() => {
+                    dispatch(setDashboard("ادرس های من"));
+                  }}
+                >
                   ادرس های من
                   <MapsHomeWorkIcon className="menuIcons" />
                 </div>
-                <div className="dashboard__option">
+                <div
+                  className={
+                    redux?.dashboard === "سفارش های من"
+                      ? "dashboard__option active"
+                      : "dashboard__option"
+                  }
+                  onClick={() => {
+                    dispatch(setDashboard("سفارش های من"));
+                  }}
+                >
                   سفارش های من
                   <WorkOutlineIcon className="menuIcons" />
                 </div>
@@ -96,17 +129,44 @@ const DashboardLayout = ({ children }) => {
                   ""
                 ) : (
                   <>
-                    <div className="dashboard__option">
+                    <div
+                      className={
+                        redux?.dashboard === "طرح های من"
+                          ? "dashboard__option active"
+                          : "dashboard__option"
+                      }
+                      onClick={() => {
+                        dispatch(setDashboard("طرح های من"));
+                      }}
+                    >
                       طرح های من
                       <DesignServicesIcon className="menuIcons" />
                     </div>
-                    <div className="dashboard__option">
+                    <div
+                      className={
+                        redux?.dashboard === "آمار فروش"
+                          ? "dashboard__option active"
+                          : "dashboard__option"
+                      }
+                      onClick={() => {
+                        dispatch(setDashboard("آمار فروش"));
+                      }}
+                    >
                       آمار فروش
                       <EqualizerIcon className="menuIcons" />
                     </div>
                   </>
                 )}
-                <div className="dashboard__option">
+                <div
+                  className={
+                    redux?.dashboard === "پیام های من"
+                      ? "dashboard__option active"
+                      : "dashboard__option"
+                  }
+                  onClick={() => {
+                    dispatch(setDashboard("پیام های من"));
+                  }}
+                >
                   پیام های من
                   <MailOutlineIcon className="menuIcons" />
                 </div>
@@ -142,11 +202,13 @@ const DashboardLayout = ({ children }) => {
                   }}
                   variant="contained"
                   onClick={() => {
-                    axiosInstance
-                      .post("/api/v1/accounts/promote_to_designer/")
-                      .then(() => {
-                        onInfo();
-                      });
+                    if (!redux?.userData?.role === "CUS") {
+                      axiosInstance
+                        .post("/api/v1/accounts/promote_to_designer/")
+                        .then(() => {
+                          onInfo();
+                        });
+                    }
                   }}
                 >
                   {redux?.userData?.role === "CUS"

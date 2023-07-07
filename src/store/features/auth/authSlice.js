@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   userData: "",
   isLogin: false,
+  dashboard: "اطلاعات کاربری",
 };
 
 const authSlice = createSlice({
@@ -17,8 +18,11 @@ const authSlice = createSlice({
       state.userData = "";
       state.isLogin = false;
     },
+    setDashboard(state, action) {
+      state.dashboard = action.payload;
+    },
   },
   extraReducers: {},
 });
 export default authSlice.reducer;
-export const { getUserData, logOut } = authSlice.actions;
+export const { getUserData, logOut, setDashboard } = authSlice.actions;
