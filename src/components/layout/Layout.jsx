@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
       <MainHeader />
       <MiniNavbar />
       <main className="layOut__container">{children}</main>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

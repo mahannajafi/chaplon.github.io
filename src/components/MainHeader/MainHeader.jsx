@@ -9,11 +9,43 @@ import {
   faBell,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import axiosInstance from "../../hooks/axios";
+import { getUserData } from "../../store/features/auth/authSlice";
 
 const MainHeader = () => {
+  const redux = useSelector((state) => state.auth);
   const [isLogin, setIsLogin] = useState(false);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    setIsLogin(redux.isLogin);
+    console.log(redux.isLogin);
+  }, [redux]);
+  // const onInfo = (data) => {
+  //   // navigate("/login  ");
+  //   axiosInstance
+  //     .get(`/api/v1/accounts/get_my_info/`)
+  //     .then((res) => {
+  //       // console.log(res);
+  //       // console.log(res.data);
+  //       console.log(res.data);
+  //       dispatch(getUserData(res.data));
+  //     })
+  //     .then((res) => {
+  //       // Navigate("/");
+  //       setIsLogin(true);
+  //     })
+  //     .catch((res) => {
+  //       console.log(res.data);
+  //       console.log("kir shodam");
+  //       // setError('phone_number',{type:'requr',message})
+  //     });
+  // };
+  // useEffect(() => {
+  //   onInfo();
+  // }, []);
   return (
     <div className="mainHeader__container">
       <div className="mainHeader__right">
@@ -48,28 +80,30 @@ const MainHeader = () => {
             </Button>
           </Link>
         )}
-        <Button
-          sx={{
-            bgcolor: "var(--second-color)",
-            color: "var(--main-color)",
-            border: "1px solid var(--main-color)",
-            display: "flex",
-            alignItems: "center",
-            gap: "5px",
-            padding: "5px 15px",
-            borderRadius: "8px",
-            marginLeft: "10px",
-            "@media (max-width: 500px)": {
-              display: "none",
-            },
-          }}
-          variant="contained"
-        >
-          طراحی کنید
-          <div>
-            <FontAwesomeIcon icon={faPenRuler} />
-          </div>
-        </Button>
+        <Link to="/design">
+          <Button
+            sx={{
+              bgcolor: "var(--second-color)",
+              color: "var(--main-color)",
+              border: "1px solid var(--main-color)",
+              display: "flex",
+              alignItems: "center",
+              gap: "5px",
+              padding: "5px 15px",
+              borderRadius: "8px",
+              marginLeft: "10px",
+              "@media (max-width: 500px)": {
+                display: "none",
+              },
+            }}
+            variant="contained"
+          >
+            طراحی کنید
+            <div>
+              <FontAwesomeIcon icon={faPenRuler} />
+            </div>
+          </Button>
+        </Link>
       </div>
       <div className="mainHeader__left">
         <div className="mainHeader__search">

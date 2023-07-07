@@ -34,7 +34,7 @@
   /* justify-content: space-between; */
   align-items: center;
   gap: 80px;
-  height: 60%;
+  height: 70%;
 }
 .Login__login-main {
   width: 65%;
@@ -53,6 +53,7 @@
   font-size: 40px;
   font-weight: bold;
   color: var(--main-color);
+  height: 9vh;
 }
 .login__input {
   outline: none;

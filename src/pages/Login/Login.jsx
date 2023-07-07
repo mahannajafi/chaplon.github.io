@@ -2,15 +2,45 @@ import { useState } from "react";
 import "./Login.css";
 import Button from "@mui/material/Button";
 import axiosInstance from "../../hooks/axios";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { getUserData } from "../../store/features/auth/authSlice";
 
 const Login = () => {
   const [login, setLogin] = useState(false);
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [user, setUser] = useState({
+    username: "",
+    password: "",
+  });
+  const [userNew, setUserNew] = useState({
+    username: "",
+    password: "",
+  });
+  const onInfo = (data) => {
+    // navigate("/login  ");
+    axiosInstance
+      .get(`/api/v1/accounts/get_my_info/`)
+      .then((res) => {
+        // console.log(res);
+        // console.log(res.data);
+        console.log(res.data);
+        dispatch(getUserData(res.data));
+      })
+      .then((res) => {
+        navigate("/");
+      })
+      .catch((res) => {
+        console.log(res.data);
+        // setError('phone_number',{type:'requr',message})
+      });
+  };
   const onSubmitLoginHandler = (data) => {
     console.log(data);
     axiosInstance
-      .post(`/api/token/`, {
-        phone_number: data.phone_number,
+      .post(`/api/v1/accounts/token/`, {
+        username: data.username,
         password: data.password,
       })
       .then((res) => {
@@ -24,6 +54,10 @@ const Login = () => {
 
         console.log(res.data);
       })
+      .then(() => {
+        onInfo();
+        // navigate("/");
+      })
       .catch((res) => {
         console.log(res.data);
       });
@@ -32,22 +66,22 @@ const Login = () => {
     console.log(data);
     // navigate("/login  ");
     axiosInstance
-      .post(`api/user/register/`, {
-        phone_number: data.phone_number,
-        first_name: data.first_name,
-        last_name: data.last_name,
+      .post(`/api/v1/accounts/register/`, {
+        username: data.username,
         password: data.password,
       })
       .then((res) => {
         console.log(res);
         console.log(res.data);
+        onSubmitLoginHandler(data);
       })
       .then(() => {
         // navigate("/login");
       })
       .catch((res) => {
         console.log(res.data);
-        console.log("kir shodam");
+        setLogin(false);
+
         // setError('phone_number',{type:'requr',message})
       });
   };
@@ -74,7 +108,9 @@ const Login = () => {
                     padding: "12px 35px",
                     borderRadius: "25px",
                   }}
-                  onClick={() => setLogin(false)}
+                  onClick={() => {
+                    setLogin(false);
+                  }}
                   variant="contained"
                 >
                   ثبت نام
@@ -83,12 +119,33 @@ const Login = () => {
             ) : (
               <>
                 <div className="login_title">ثبت نام </div>
-                <input
-                  type="text"
-                  pattern="[0]{1}[9]{1}[0-9]{8}"
-                  className="login__input"
-                  placeholder=". ایمیل خود را وارد کنید"
-                ></input>
+                <div
+                  style={{
+                    gap: "10px",
+                    display: "flex",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                  }}
+                >
+                  <input
+                    type="text"
+                    className="login__input"
+                    placeholder=". ایمیل خود را وارد کنید"
+                    onChange={(e) => {
+                      setUserNew({ ...userNew, username: e.target.value });
+                    }}
+                  />
+                  <input
+                    type="password"
+                    pattern="[0]{1}[9]{1}[0-9]{8}"
+                    className="login__input"
+                    placeholder=".رمز عبور خود را وارد کنید  "
+                    onChange={(e) => {
+                      setUserNew({ ...userNew, password: e.target.value });
+                    }}
+                  />
+                </div>
+
                 <Button
                   sx={{
                     bgcolor: "var(--main-color)",
@@ -100,8 +157,12 @@ const Login = () => {
                     borderRadius: "20px",
                   }}
                   variant="contained"
+                  onClick={() => {
+                    console.log(userNew);
+                    onSubmitRegisterHandler(userNew);
+                  }}
                 >
-                  ارسال کد
+                  ثبت نام
                 </Button>
               </>
             )}
@@ -119,18 +180,24 @@ const Login = () => {
           >
             {login ? (
               <>
-                <div className="login_title">ثبت نام </div>
+                <div className="login_title"> ورود </div>
                 <input
-                  type="text"
+                  type="email"
                   pattern="[0]{1}[9]{1}[0-9]{8}"
                   className="login__input"
                   placeholder=".ایمیل خود را وارد کنید"
+                  onChange={(e) => {
+                    setUser({ ...user, username: e.target.value });
+                  }}
                 />
                 <input
-                  type="text"
+                  type="password"
                   pattern="[0]{1}[9]{1}[0-9]{8}"
                   className="login__input"
                   placeholder=".رمز عبور خود را وارد کنید  "
+                  onChange={(e) => {
+                    setUser({ ...user, password: e.target.value });
+                  }}
                 />
                 <Button
                   sx={{
@@ -143,6 +210,9 @@ const Login = () => {
                     borderRadius: "20px",
                   }}
                   variant="contained"
+                  onClick={() => {
+                    onSubmitLoginHandler(user);
+                  }}
                 >
                   ورود
                 </Button>
