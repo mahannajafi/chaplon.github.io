@@ -1,0 +1,154 @@
+.address__container {
+  margin: 19px 35px 0 35px;
+  width: 94%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.address__card {
+  /* box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.3); */
+  box-shadow: 1px 1px 50px 0px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f2f2f2;
+  border-radius: 15px;
+  width: 100%;
+  z-index: 1000;
+}
+
+.address__header {
+  background-color: var(--main-color);
+  color: var(--second-color);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+}
+.addressHeaderLeft {
+  display: flex;
+  padding-right: 20px;
+  font-size: 18px;
+}
+.addressHeaderRight {
+  display: flex;
+}
+.addressContent {
+  display: flex;
+  padding: 20px 30px;
+}
+.addressText {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+.address__dec {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.addressLocation {
+  width: 194px;
+  height: 136px;
+  margin-right: 50px;
+}
+/* sda */
+.addAddressSection {
+  width: 40%;
+  height: 55%;
+  background-color: #fff;
+  z-index: 1;
+  position: fixed;
+  top: 25%;
+  left: 30%;
+  display: none;
+  transition: 1s;
+  border-radius: 30px;
+  box-shadow: 0 0 10px #343434;
+  margin-bottom: 20px;
+  z-index: 10001;
+}
+
+.addAddressContent {
+  width: 100%;
+  display: flex;
+  padding-top: 10px;
+}
+
+.addAddressLocation {
+  width: 50%;
+  height: 280px;
+  margin: 0 30px;
+  background-color: #ababab;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.locationIcon {
+  color: var(--main-color);
+}
+
+.addAddressForm {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+
+.addAddressLabel {
+  width: 50%;
+}
+
+.addAddressLabel > input,
+.addAddressLabel > select {
+  margin: 6px 0;
+  padding: 4px 10px;
+  width: 90%;
+  border: none;
+}
+
+.addressLabel {
+  width: 100%;
+}
+
+.addressLabel > input {
+  width: 95%;
+}
+
+.addAddressButton {
+  margin: 10px auto;
+  display: flex;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background-color: var(--main-color);
+  color: var(--second-color);
+  cursor: pointer;
+}
+.addAddressHeader {
+  padding: 10px 44% 10px 20px;
+  background-color: var(--main-color);
+  border-radius: 30px 30px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--second-color);
+}
+.addAddress {
+  margin-top: 15px;
+  display: flex;
+  width: 35px;
+  height: 35px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: var(--main-color);
+  color: var(--second-color);
+  cursor: pointer;
+}

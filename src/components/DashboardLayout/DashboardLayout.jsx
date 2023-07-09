@@ -24,6 +24,7 @@ import {
   setDashboard,
 } from "../../store/features/auth/authSlice";
 import axiosInstance from "../../hooks/axios";
+import Address from "../Address/Address";
 
 const DashboardLayout = ({ children }) => {
   const redux = useSelector((state) => state.auth);
@@ -51,7 +52,7 @@ const DashboardLayout = ({ children }) => {
         <div className="dashboard__container">
           <div className="dashboard__items">
             <div className="header">{redux?.dashboard}</div>
-            {children}
+            {redux?.dashboard === "ادرس های من" ? <Address /> : ""}
           </div>
           <div className="dashboard__menu">
             <div className="dashboard__userCon">
@@ -202,13 +203,11 @@ const DashboardLayout = ({ children }) => {
                   }}
                   variant="contained"
                   onClick={() => {
-                    if (!redux?.userData?.role === "CUS") {
-                      axiosInstance
-                        .post("/api/v1/accounts/promote_to_designer/")
-                        .then(() => {
-                          onInfo();
-                        });
-                    }
+                    axiosInstance
+                      .post("/api/v1/accounts/promote_to_designer/")
+                      .then(() => {
+                        onInfo();
+                      });
                   }}
                 >
                   {redux?.userData?.role === "CUS"
