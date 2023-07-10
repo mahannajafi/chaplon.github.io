@@ -5,6 +5,9 @@ import { Button } from "@mui/material";
 import mask1 from "../../assets/imgs/Mask1.png";
 import mask2 from "../../assets/imgs/Mask2.png";
 import mask3 from "../../assets/imgs/Mask3.png";
+import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axiosInstance from "../../hooks/axios";
 
 const Design = () => {
   return (
@@ -43,15 +46,19 @@ const Design = () => {
         <button className="category__button"> دسته بندی محصولات خام </button>
         <div className="line" />
         <div className="category__cat">
-          <div className="category__pic">
+          <Link to="/rowproducts" state={{ id: 3 }} className="category__pic">
             <img src={mask2} alt="2" srcset="" />
-          </div>
-          <div className="category__pic category__pic-main">
+          </Link>
+          <Link
+            to="/rowproducts"
+            state={{ id: 2 }}
+            className="category__pic category__pic-main"
+          >
             <img src={mask1} alt="1" srcset="" />
-          </div>
-          <div className="category__pic">
+          </Link>
+          <Link to="/rowproducts" state={{ id: 1 }} className="category__pic">
             <img src={mask3} alt="3" srcset="" />
-          </div>
+          </Link>
         </div>
       </div>
     </Layout>

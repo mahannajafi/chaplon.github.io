@@ -22,6 +22,9 @@ const Address = () => {
   }, []);
   return (
     <div className="address__container">
+      <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+        {addresses?.length === 0 ? "آدرسی اضافه نشده است" : ""}
+      </div>
       {addresses?.map((object) => (
         <div className="address__card">
           <div className="address__header">

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
-const DesignInfo = () => {
+const DesignInfo = ({ product }) => {
   const availableProductColors = [
     "blue",
     "cyan",
@@ -13,6 +13,19 @@ const DesignInfo = () => {
     "purple",
     "pink",
   ];
+  const [postProduct, setPostProduct] = useState({
+    name: "",
+    desc: "",
+    design_image:
+      "https://chuplon-back.iran.liara.run/media/photo_2023-07-08_21-06-43_Ol96aYt.jpg",
+    prototype_image:
+      "https://chuplon-back.iran.liara.run/media/photo_2023-07-08_21-06-43_Ol96aYt.jpg",
+    price: 0,
+    blank_product: product?.id,
+    designer: 2,
+    provider: 1,
+    colors: [10],
+  });
 
   const [productName, setProductName] = useState("");
   const [productDescription, setProductDescription] = useState("");
@@ -37,14 +50,7 @@ const DesignInfo = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(
-      productName,
-      productDescription,
-      productColors,
-      finalPrice,
-      designFile,
-      designedProductFile
-    );
+    console.log(postProduct);
   };
 
   return (
@@ -64,8 +70,10 @@ const DesignInfo = () => {
               نام&nbsp;محصول&nbsp;:
               <input
                 type="text"
-                value={productName}
-                onChange={(event) => setProductName(event.target.value)}
+                value={postProduct.name}
+                onChange={(event) =>
+                  setPostProduct({ ...postProduct, name: event.target.value })
+                }
                 className="design-info__form__label__input product-name-input"
               />
             </label>
@@ -75,8 +83,10 @@ const DesignInfo = () => {
             <label className="design-info__form__label">
               توضیحات&nbsp;:
               <textarea
-                value={productDescription}
-                onChange={(event) => setProductDescription(event.target.value)}
+                value={postProduct.desc}
+                onChange={(event) =>
+                  setPostProduct({ ...postProduct, desc: event.target.value })
+                }
                 className="design-info__form__label__input"
               />
             </label>
@@ -119,12 +129,14 @@ const DesignInfo = () => {
             قیمت&nbsp;نهایی&nbsp;:
             <input
               type="range"
-              value={finalPrice}
               min="0"
               max="50000"
               step="500"
               dir="ltr"
-              onChange={(event) => setFinalPrice(event.target.value)}
+              value={postProduct.price}
+              onChange={(event) =>
+                setPostProduct({ ...postProduct, price: event.target.value })
+              }
               className="design-info__form__label__input final-price-input"
             />
             <div>{finalPrice}</div>

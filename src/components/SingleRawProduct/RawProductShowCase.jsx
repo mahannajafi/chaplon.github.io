@@ -3,7 +3,7 @@ import sweatshirt from "../../assets/imgs/swishert.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-const RawProductShowCase = () => {
+const RawProductShowCase = ({ product }) => {
   return (
     <>
       <div className="showcase">
@@ -14,12 +14,12 @@ const RawProductShowCase = () => {
         </div>
 
         <div className="showcase__image-box">
-          <img src={sweatshirt} alt="" />
+          <img src={product?.blank_product_images[0]?.image} alt="" />
         </div>
 
         <div className="showcase__product-description">
           <div className="showcase__product-description__title-container">
-            <h3>نام محصول</h3>
+            <h3>{product?.title ? product?.title : "نام محصول"}</h3>
             <span className="score">
               امتیاز
               <FontAwesomeIcon icon={faStar} />
@@ -27,13 +27,13 @@ const RawProductShowCase = () => {
           </div>
 
           <div className="showcase__product-description__attributes-container">
-            <h4>ویژگی های محصول</h4>
+            <h4>ویژگی های محصول :</h4>
             <ul className="product-attributes-container">
-              <li>لورم ایپسوم متن ساختگی</li>
-              <li>لورم ایپسوم متن ساختگی</li>
-              <li>لورم ایپسوم متن ساختگی</li>
-              <li>لورم ایپسوم متن ساختگی</li>
-              <li>لورم ایپسوم متن ساختگی</li>
+              {product?.props?.map((e) => (
+                <li>
+                  {e?.prop}  :  {e?.value}
+                </li>
+              ))}
             </ul>
           </div>
         </div>

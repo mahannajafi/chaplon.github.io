@@ -1,7 +1,7 @@
 import "./ShowCase.css";
 import sweatshirt from "../../assets/imgs/swishert.png";
 
-const ShowCase = () => {
+const ShowCase = ({ product }) => {
   return (
     <>
       <div className="showcase">
@@ -12,7 +12,7 @@ const ShowCase = () => {
         </div>
 
         <div className="showcase__image-box">
-          <img src={sweatshirt} alt="" />
+          <img src={product?.blank_product_images[0]?.image} alt="" />
         </div>
 
         <div className="showcase__limits-description">
@@ -25,7 +25,9 @@ const ShowCase = () => {
             زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و
             متخصصان را می طلبد.
           </p>
-          <button className="showcase__limits-description__btn">دانلود طرح خام</button>
+          <button className="showcase__limits-description__btn">
+            دانلود طرح خام
+          </button>
         </div>
       </div>
     </>

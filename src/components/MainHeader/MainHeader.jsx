@@ -20,9 +20,10 @@ const MainHeader = () => {
   const [isLogin, setIsLogin] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
-    setIsLogin(redux.isLogin);
-    console.log(redux.isLogin);
-  }, [redux]);
+    if (localStorage.getItem("access_token")) {
+      setIsLogin(true);
+    }
+  }, []);
   // const onInfo = (data) => {
   //   // navigate("/login  ");
   //   axiosInstance
@@ -83,7 +84,7 @@ const MainHeader = () => {
             </Button>
           </Link>
         )}
-        <Link to="/design" style={{ textDecoration: "none" }}>
+        <Link to="/Learn" style={{ textDecoration: "none" }}>
           <Button
             sx={{
               bgcolor: "var(--second-color)",

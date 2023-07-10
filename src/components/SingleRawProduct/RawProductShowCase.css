@@ -27,6 +27,9 @@
   justify-content: center;
   align-items: center;
 }
+.showcase__image-box {
+  height: 400px;
+}
 
 .showcase__image-selection > * {
   width: 100px;
