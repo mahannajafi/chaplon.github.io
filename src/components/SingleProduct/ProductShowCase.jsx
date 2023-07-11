@@ -63,7 +63,7 @@ const ProductShowCase = ({ product }) => {
 
       <div className="product-showcase__image-container">
         <img
-          src={product?.design_image}
+          src={product?.prototype_image}
           alt=""
           srcset=""
           className="product-showcase__image-container__image"

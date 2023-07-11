@@ -9,6 +9,9 @@ import DesignerExplanation from "../../components/SingleProduct/DesignerExplanat
 import ProductFeatures from "../../components/SingleProduct/ProductFeatures";
 import Popular from "../../components/Popular/Popular";
 import UserComments from "../../components/SingleProduct/UserComments";
+import TitleCat from "../../components/TitleCat/TitleCat";
+import Swiperer from "../../components/Swiperer/Swiperer";
+import pic from "../../assets/imgs/titlepic.png";
 
 const SingleProduct = () => {
   let { state } = useLocation();
@@ -33,7 +36,8 @@ const SingleProduct = () => {
       <MainCards />
       <DesignerExplanation product={product} />
       <ProductFeatures product={product} />
-      <Popular />
+      <TitleCat name="تازه های پرفروش" pic={pic} />
+      <Swiperer />
       <UserComments />
     </Layout>
   );

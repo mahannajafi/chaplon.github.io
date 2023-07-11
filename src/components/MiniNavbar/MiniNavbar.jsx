@@ -10,10 +10,10 @@ function MiniNavbar() {
       <div className="miniNavbar">
         <div className="miniNavbar__item">مقالات</div>
         <div className="miniNavbar__item">درباره ما</div>
-        <div className="miniNavbar__item">
+        <Link to="/products" className="miniNavbar__item">
           فروشگاه
           <FontAwesomeIcon icon={faShop} />
-        </div>
+        </Link>
       </div>
       <img
         src="https://www.figma.com/file/4sHMvQGfjBXY5WdsDi58Ad/UI%2FUX?node-id=436%3A1003&t=PLpCNzUfuYp3YmRI-4"

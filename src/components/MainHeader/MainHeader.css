@@ -23,6 +23,7 @@
   cursor: pointer;
   margin-right: 10px;
   border-right: 1px solid var(--second-color);
+  color: var(--second-color) !important;
 }
 .mainHeader__icon {
   height: 50px;

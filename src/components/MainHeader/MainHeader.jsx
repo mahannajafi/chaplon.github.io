@@ -50,9 +50,9 @@ const MainHeader = () => {
   return (
     <div className="mainHeader__container">
       <div className="mainHeader__right">
-        <div className="mainHeader__shop_icon">
+        <Link to="/basket" className="mainHeader__shop_icon">
           <FontAwesomeIcon icon={faCartShopping} />
-        </div>
+        </Link>
         {isLogin ? (
           <>
             <Link
@@ -120,7 +120,7 @@ const MainHeader = () => {
             className="mainHeader__input"
           />
         </div>
-        <div className="mainHeader__icon"></div>
+        <Link to="/" className="mainHeader__icon"></Link>
       </div>
     </div>
   );

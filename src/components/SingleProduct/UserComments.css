@@ -1,5 +1,5 @@
 .users-comments {
-  width: 75%;
+  width: 95%;
   margin: 5vh auto 25vh;
 }
 
@@ -61,4 +61,7 @@
 .users-comments__submit-comment__btn__link {
   color: var(--second-color);
   text-decoration: none;
+}
+.users-comments__comment-section {
+  width: 75%;
 }

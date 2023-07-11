@@ -1,5 +1,5 @@
 .product-showcase {
-  width: 80%;
+  width: 95%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -60,7 +60,7 @@
 }
 
 .product-showcase__image-container {
-  width: 35%;
+  width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -71,6 +71,7 @@
 .product-showcase__image-container__image {
   width: 100%;
   border-radius: 40px;
+  height: 350px;
   /* box-shadow: 5px 5px 30px #ddd; */
 }
 

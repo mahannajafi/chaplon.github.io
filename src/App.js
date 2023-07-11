@@ -8,6 +8,8 @@ import PostNewDesign from "./pages/PostNewDesign/PostNewDesign";
 import DashboardLayout from "./components/DashboardLayout/DashboardLayout";
 import RowProducts from "./pages/RowProducts/RowProducts";
 import SingleProduct from "./pages/SingleProduct/SingleProduct";
+import Products from "./pages/Products/Products";
+import Basket from "./pages/Basket/Basket";
 
 function App() {
   return (
@@ -24,8 +26,10 @@ function App() {
         <Route path="/SingleProduct/:slug" element={<SingleProduct />} />
         <Route path="/Design/:slug" element={<PostNewDesign />} />
         <Route path="/rowproducts" element={<RowProducts />} />
+        <Route path="/products" element={<Products />} />
 
         <Route path="/dashboard" element={<DashboardLayout />}></Route>
+        <Route path="/basket" element={<Basket />}></Route>
       </Routes>
     </BrowserRouter>
   );
