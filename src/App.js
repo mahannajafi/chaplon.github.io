@@ -7,6 +7,7 @@ import SingleRawProduct from "./pages/SingleRawProduct/SingleRawProduct";
 import PostNewDesign from "./pages/PostNewDesign/PostNewDesign";
 import DashboardLayout from "./components/DashboardLayout/DashboardLayout";
 import RowProducts from "./pages/RowProducts/RowProducts";
+import SingleProduct from "./pages/SingleProduct/SingleProduct";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/Learn" element={<Design />} />
         <Route path="/SingleRawProduct/:slug" element={<SingleRawProduct />} />
+        <Route path="/SingleProduct/:slug" element={<SingleProduct />} />
         <Route path="/Design/:slug" element={<PostNewDesign />} />
         <Route path="/rowproducts" element={<RowProducts />} />
 

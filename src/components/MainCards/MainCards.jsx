@@ -6,10 +6,12 @@ import card4 from "../../assets/imgs/card-4.png";
 
 function MainCards() {
   return (
-    <div className="mainCards__container">
+    <div dir="rtl" className="mainCards__container">
       <div className="mainCards__card">
         <img src={card1} alt="" srcset="" />
-      <div className="mainCards__card-title">محصولات متنوع و منحصر به فرد </div>
+        <div className="mainCards__card-title">
+          محصولات متنوع و منحصر به فرد{" "}
+        </div>
       </div>
       <div className="mainCards__card">
         <img src={card2} alt="" srcset="" />

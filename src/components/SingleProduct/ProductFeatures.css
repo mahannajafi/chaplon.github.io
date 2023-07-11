@@ -1,0 +1,32 @@
+.product-features {
+  width: 75%;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px #ddd;
+  margin: 5vh auto;
+}
+
+.product-features__title {
+  width: 100%;
+  border-radius: 40px 40px 0 0;
+  text-align: right;
+  color: var(--second-color);
+  background-color: var(--main-color);
+  padding: 15px 40px;
+}
+
+.product-features__info {
+  color: var(--main-color);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 200%;
+  text-align: right;
+  padding: 10px 40px 20px;
+}
+
+.product-features__list__item {
+  color: var(--main-color);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px;
+  margin: 0 50px;
+}
