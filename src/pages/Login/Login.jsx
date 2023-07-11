@@ -53,6 +53,7 @@ const Login = () => {
       })
       .then(() => {
         onInfo();
+        localStorage.setItem("basket", "[]");
         // navigate("/");
       })
       .catch((res) => {

@@ -1,6 +1,6 @@
 import "./ProductShowCase.css";
 import sweatshirt from "../../assets/imgs/swishert.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
@@ -12,6 +12,33 @@ const ProductShowCase = ({ product }) => {
 
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
+  const [addLocal, setAddLocal] = useState({
+    size: "",
+    title: "",
+    color: "",
+    price: "",
+    number: 1,
+    picture: "",
+  });
+
+  useEffect(() => {
+    setAddLocal({
+      ...addLocal,
+      title: product?.name,
+      price: product?.price,
+      picture: product?.prototype_image,
+    });
+  }, [product]);
+  useEffect(() => {
+    setAddLocal({ ...addLocal, color: selectedColor });
+  }, [selectedColor]);
+  const addHandler = () => {
+    console.log(addLocal);
+    localStorage.setItem(
+      "basket",
+      JSON.stringify([...JSON.parse(localStorage.getItem("basket")), addLocal])
+    );
+  };
 
   return (
     <div dir="rtl" className="product-showcase">
@@ -41,8 +68,10 @@ const ProductShowCase = ({ product }) => {
         <div className="product-showcase__select-product-attributes__size-container">
           <span>سایز :</span>
           <select
-            value={selectedSize}
-            onChange={(event) => setSelectedSize(event.target.value)}
+            value={addLocal.size}
+            onChange={(event) =>
+              setAddLocal({ ...addLocal, size: event.target.value })
+            }
             className="product-showcase__select-product-attributes__size-container__sizes"
           >
             {availableSizes?.map((size, index) => (
@@ -121,7 +150,10 @@ const ProductShowCase = ({ product }) => {
           </div>
         </div>
 
-        <button className="product-showcase__description__add-to-cart-btn">
+        <button
+          onClick={addHandler}
+          className="product-showcase__description__add-to-cart-btn"
+        >
           افزودن به سبد خرید
         </button>
       </div>
