@@ -26,8 +26,9 @@ const DesignInfo = ({ product, state }) => {
   const [finalPrice, setFinalPrice] = useState("");
   const [designFile, setDesignFile] = useState(null);
   const [selectedImage1, setSelectedImage1] = useState(null);
+  const [selectedImage2, setSelectedImage2] = useState(null);
 
-  const handleImageChange = (event) => {
+  const handleImageChange1 = (event) => {
     const file = event.target.files[0];
     console.log(file);
     const formData = new FormData();
@@ -35,7 +36,20 @@ const DesignInfo = ({ product, state }) => {
     axiosInstance
       .post("/api/v1/store/post-product-image", formData)
       .then((res) => {
-        console.log(res);
+        console.log(res?.data?.id);
+        setSelectedImage1(res?.data?.id);
+      });
+  };
+  const handleImageChange2 = (event) => {
+    const file = event.target.files[0];
+    console.log(file);
+    const formData = new FormData();
+    formData.append("image", file);
+    axiosInstance
+      .post("/api/v1/store/post-product-image", formData)
+      .then((res) => {
+        console.log(res?.data?.id);
+        setSelectedImage2(res?.data?.id);
       });
   };
   const handleProductColorSelection = (event, color) => {
@@ -52,13 +66,21 @@ const DesignInfo = ({ product, state }) => {
   useEffect(() => {
     setPostProduct({ ...postProduct, blank_product: product?.id });
   }, [product]);
+  useEffect(() => {
+    setPostProduct({
+      ...postProduct,
+      provider: state?.provider?.id,
+      design_image: selectedImage1,
+      prototype_image: selectedImage2,
+    });
+  }, [selectedImage1, selectedImage2]);
   const handleSubmit = (event) => {
     event.preventDefault();
-    setPostProduct({ ...postProduct, provider: state?.provider?.id });
-    // axiosInstance.post("/api/v1/store/products/", postProduct).then(() => {
-    //   console.log("done");
-    // });
-    navigate("/");
+
+    axiosInstance.post("/api/v1/store/products/", postProduct).then(() => {
+      console.log("done");
+    });
+    // navigate("/");
     console.log(postProduct);
   };
 
@@ -158,7 +180,7 @@ const DesignInfo = ({ product, state }) => {
               <input
                 type="file"
                 accept="image/*"
-                onChange={handleImageChange}
+                onChange={handleImageChange1}
                 className="design-info__form__label__input custom-file-input"
               />
             </label>
@@ -167,6 +189,7 @@ const DesignInfo = ({ product, state }) => {
               محصول&nbsp;طراحی&nbsp;شده&nbsp;:
               <input
                 type="file"
+                onChange={handleImageChange2}
                 // onChange={(event) =>
                 //   setDesignedProductFile(event.target.files[0])
                 // }
